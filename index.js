@@ -150,8 +150,10 @@ app.post('/login', async (req, res) => {
       req.session.isAuthenticated = true;
       if (role === 'admin') {
         res.redirect('/admin');
+        console.log(role);
       } else if (role === 'manager') {
         res.redirect('/manager');
+        console.log(role);
       } else {
         res.status(500).send('Неизвестная роль пользователя');
       }
