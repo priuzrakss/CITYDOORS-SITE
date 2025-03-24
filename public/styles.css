@@ -1,0 +1,182 @@
+body{
+    background-color: rgba(25,25,25);
+    color: white;
+    margin: 0;
+    font-family: 'Bounder', sans-serif;
+}
+
+.image{
+    background-image: url('./imgs/th.png');
+    background-size: 50%;
+    background-position: 100% 0%;
+    background-repeat: no-repeat;
+    filter: blur(17px); /* Размытие в 5 пикселей */
+    width: 100%;
+    height: 940px;
+    margin: 0;
+}
+
+.Logo{
+    padding: 5%;
+    color: white;
+    font-size: 45pt;
+    width: 50%;
+
+}
+
+.block{
+    position: absolute;
+    left: 0%;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(100px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для придания глубины */
+    z-index: 10
+}
+
+.space-block{
+    padding: 15px;
+}
+
+.login-block{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 5%;
+    margin-right: 25px;
+    margin-bottom: 20px;
+}
+
+.login-block label{
+    font-size: 25px;
+}
+
+.login-block input {
+    margin: 25px;
+    margin-left: -20px;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.75);
+    background-color: rgba(25, 25, 25, 1);
+    padding: 15px;
+    width: 75%;
+    height: 100%;
+    border: 0px;
+    border-radius: 10px; /* Скругление углов */
+    font-size: 18px; /* Увеличенный размер шрифта */
+}
+
+.login-block button{
+    width: 15%;
+    height: 50px;
+    margin-left: 155px;
+    border-radius: 10px ;
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(25, 25, 25, 1);
+    align-self:center;
+    border: 0px;
+    backdrop-filter: blur(100px);
+    font-family: 'Bounder-regular', sans-serif;
+
+}
+
+.login-block button:active {
+    background-color: #3e8e41; /* Darker green */
+    transform: scale(0.95);
+  }
+.input{
+
+        font-family: 'Bounder-regular', sans-serif;
+
+}
+@font-face {
+    font-family: 'Bounder';
+    src: url('./fonts/Bounded-Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bounder-regular';
+    src: url('./fonts/Bounded-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media (max-width: 600px){
+  
+    .Logo{
+        padding: 5%;
+        color: white;
+        font-size: 100%;
+    
+    }
+    .image{
+        background-image: url('./imgs/th\ _phone.png');
+        background-size: 50%;
+        background-position: 150% 0;
+        background-repeat: no-repeat;
+        filter: blur(7px); /* Размытие в 5 пикселей */
+        width: 100%;
+        height: 740px;
+        margin: 0;
+    }
+    
+    .block{
+        position: absolute;
+        left: 0%;
+        top: 0;
+        width: 75%;
+        height: 740px;
+        background-color: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(100px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для придания глубины */
+        z-index: 10
+    }
+    
+    .space-block{
+        padding: 15px;
+    }
+    
+    .login-block{
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        padding: 5%;
+        margin-right: 25px;
+        margin-bottom: 20px;
+    }
+    
+    .login-block label{
+        font-size: 15px;
+    }
+    
+    .login-block input {
+        margin-top: 15px;
+        margin-left: -5px;
+        color: rgba(255, 255, 255, 0.75);
+        background-color: rgba(25, 25, 25, 1);
+        padding: 15px;
+        width:200px;
+        border: 0px;
+        border-radius: 10px; /* Скругление углов */
+        font-size: 18px; /* Увеличенный размер шрифта */
+        text-align: start;
+        font-family: 'Bounder-regular', sans-serif;
+    }
+    
+    .login-block button{
+        align-self:center;
+        width: 35%;
+        height: 50px;
+        margin-right: 30px;
+        border-radius: 10px ;
+        color: rgba(255, 255, 255, 1);
+        background-color: rgba(25, 25, 25, 1);
+        border: 0px;
+        backdrop-filter: blur(100px);
+        font-family: 'Bounder-regular', sans-serif;
+    
+    }
+}
