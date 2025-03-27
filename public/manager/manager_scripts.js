@@ -1,5 +1,6 @@
 import { checkAndAddCategoryButton, getCategories } from './category.js';
-import { checkAndAddObjectButton } from './object.js';
+import { checkAndAddObjectButton, fluidMenu} from './object.js';
+
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log("start");
@@ -7,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     checkAndAddObjectButton();
     contextCategoies();
     setSubcategoies();
+    fluidMenu();
 });
 
 async function setSubcategoies(parms){
