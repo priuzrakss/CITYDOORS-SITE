@@ -81,7 +81,7 @@ app.post('/subcategories/:id', async (req, res) => {
   }
 });
 
-app.get('/subcategories', async (req, res) => {
+app.get('/subcategories:id', async (req, res) => {
   try {
     const allSubcategories = await subcategories.getSubcategories();
     res.json(allSubcategories);

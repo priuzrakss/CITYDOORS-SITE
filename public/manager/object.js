@@ -1,4 +1,75 @@
-export function checkAndAddObjectButton() {
+       
+    export function fluidMenu() {
+        const modal = document.getElementById("myModal"); // Переменные
+        const openBtn = document.getElementById("openModalBtn");
+        const closeBtn = document.querySelector(".close");
+        const addFieldBtn = document.getElementById("addFieldBtn");
+        const dynamicFields = document.getElementById("dynamicFields");
+        const submitBtn = document.getElementById("submitBtn");
+        
+        var Counter = 0; // Для каждого поля разные id
+        
+
+        openBtn.addEventListener('click', function(e){ // Функции
+            modal.style.display = 'block';
+        }); 
+        closeBtn.addEventListener('click', function(e){ 
+            modal.style.display = 'none';
+            
+        });
+        addFieldBtn.addEventListener('click', function(e){
+            const createfield = document.createElement ('input');
+            const createVarField = document.createElement ('input');
+            const deleteBtn = document.createElement ('button');
+            const holder = document.createElement ('div');
+
+            createfield.classList.add('field');
+            createfield.placeholder = 'Название/Имя';
+            createVarField.classList.add('varField');
+            createVarField.placeholder = 'Значение';
+            deleteBtn.textContent = 'Удалить';
+            createfield.id = Counter;
+            createVarField.id = Counter;
+            Counter ++;
+
+            holder.appendChild (createfield);
+            holder.appendChild (createVarField);
+            holder.appendChild (deleteBtn);
+            dynamicFields.appendChild (holder);
+
+            deleteBtn.addEventListener('click', function(e){
+                createfield.remove();
+                createVarField.remove();
+                deleteBtn.remove();
+            })
+
+            const title = '';
+            const info = '';
+            
+        });
+        submitBtn.addEventListener('click', function(e){ // Статические поля(Статистика)
+            const input1 = document.querySelector('#field1').value;
+            const input2 = document.querySelector('#field2').value;
+            const input3 = document.querySelector('#field3').value;
+            const addfields = document.querySelectorAll('.field');
+            const addVarFields = document.querySelectorAll('.varField');
+            const addFields = [];
+            const data = {
+                name: input1, 
+                discription: input2,
+                price: input3,
+                ArrayFields: addFields,
+            }
+            data.ArrayFields = Array.from(addfields).map((field, index) => {
+                return { name: field.value, var: addVarFields[index].value };
+            });
+            console.log(data);
+        });
+    }
+
+       
+    
+    export function checkAndAddObjectButton() {
     const objectDisplay = document.querySelector('.object-display');
     const objectElements = objectDisplay ? objectDisplay.querySelectorAll('.object-element') : [];
 
@@ -10,7 +81,9 @@ export function checkAndAddObjectButton() {
         // Создаем кнопку
         const button = document.createElement('button');
         button.textContent = 'Добавить товар';
-        button.classList.add('add-object-button');
+        button.classList.add('add-object-button' );
+        // Добавляю id кнопки
+       button.id='openModalBtn';
         
         // Добавляем кнопку в category-display
         objectDisplay.appendChild(button);
@@ -28,3 +101,4 @@ export function deleteObject(){
 export function changeObject(){
     return;
 }
+
