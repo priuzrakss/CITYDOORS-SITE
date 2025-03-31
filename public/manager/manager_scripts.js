@@ -40,3 +40,10 @@ const objectMenu = document.getElementById('object-block');
 const categoryMenu = document.getElementById('category-block');
 const contextMenu = document.getElementById('context-menu');
 
+//кнопка
+$('#file-input').focus(function() {
+    $('label').addClass('focus');
+})
+.focusout(function() {
+    $('label').removeClass('focus');
+});

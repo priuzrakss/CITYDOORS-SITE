@@ -6,7 +6,11 @@
         const addFieldBtn = document.getElementById("addFieldBtn");
         const dynamicFields = document.getElementById("dynamicFields");
         const submitBtn = document.getElementById("submitBtn");
-        
+       // const sendPicBtn = document.getElementById("photoUpload"); // Для подгрузки фото (а как сделать чтобы)
+       // const photoPreview = document.getElementById("photoPreview");
+       
+        const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+
         var Counter = 0; // Для каждого поля разные id
         
 
@@ -17,7 +21,12 @@
             modal.style.display = 'none';
             
         });
-        addFieldBtn.addEventListener('click', function(e){
+
+           // var input = document.createElement('input');
+          //  input.type = 'file';
+         // input.click();
+
+        addFieldBtn.addEventListener('click', function(e){ // Дополнительные поля
             const createfield = document.createElement ('input');
             const createVarField = document.createElement ('input');
             const deleteBtn = document.createElement ('button');
@@ -47,7 +56,7 @@
             const info = '';
             
         });
-        submitBtn.addEventListener('click', function(e){ // Статические поля(Статистика)
+        submitBtn.addEventListener('click', function(e){ // Статические   поля(Статистика)
             const input1 = document.querySelector('#field1').value;
             const input2 = document.querySelector('#field2').value;
             const input3 = document.querySelector('#field3').value;
@@ -101,4 +110,41 @@ export function deleteObject(){
 export function changeObject(){
     return;
 }
+
+//
+    const sendBtn = document.getElementById('sendPicBtn');
+    const cancelBtn = document.getElementById('cancelBtn');
+    const fileInput = document.getElementById('imageUpload');
+    const statusDiv = document.getElementById('status');
+    document.getElementById('sendPicBtn').addEventListener('click', function() {
+    // Программно кликаем по скрытому input type="file"
+    document.getElementById('imageUpload').click();
+});
+
+    document.getElementById('imageUpload').addEventListener('change', function(e) {
+    if (this.files.length === 0) return;
+
+    const file = this.files[0];
+    const statusDiv = document.getElementById('status');
+
+    // Это изображение?
+    if (!file.type.startsWith('image/')) {
+        statusDiv.textContent = 'Ошибка: выберите файл изображения (JPEG, PNG, GIF).';
+        return;
+    }
+
+    // Имя файла
+    /*statusDiv.textContent = `Выбрано: ${file.name}`;
+    */
+
+    // Превью
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const img = document.createElement('img');
+        img.src = e.target.result;
+        img.style.maxWidth = '200px';
+        statusDiv.appendChild(img);
+    };
+    reader.readAsDataURL(file);
+});
 
