@@ -31,6 +31,9 @@ function addBackBtn(categoriesList){
         })
         document.querySelector('.name').textContent = 'Категории';    
         backBtn.remove();
+        document.querySelectorAll('.add-subcategory-button').forEach(element =>{
+            element.remove();
+        });
     }); 
     categoriesList.appendChild(backBtn);
 }

@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 async function setSubcategoies(parms){
     categoryMenu.addEventListener('click',function(e){
-        e.target.
         e.preventDefault();
         const element = e.target; // Получаем элемент, на который кликнули
         const id = element.getAttribute('id'); // Получаем id элемента
@@ -30,7 +29,7 @@ async function setSubcategoies(parms){
 }
 
 async function contextCategoies(params) {
-    categoryMenu.addEventListener('', function(e){
+    categoryMenu.addEventListener('contextmenu', function(e){
         e.preventDefault();
         const element = e.target; // Получаем элемент, на который кликнули
         const id = element.getAttribute('id'); // Получаем id элемента
@@ -39,6 +38,9 @@ async function contextCategoies(params) {
         contextMenu.style.top = `${e.pageY}px`;
         contextMenu.style.display = 'flex';
     });
+    categoryMenu.addEventListener('click', function(e) {
+        contextMenu.style.display = 'none';
+    })
 }
 
 const objectMenu = document.getElementById('object-block');
