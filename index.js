@@ -81,14 +81,17 @@ app.post('/subcategories/:id', async (req, res) => {
   }
 });
 
-app.get('/subcategories', async (req, res) => {
+app.get('/subcategories/:id', async (req, res) => {
   try {
-    const allSubcategories = await subcategories.getSubcategories();
-    res.json(allSubcategories);
+      const id = req.params.id; // Получаем id из параметров запроса
+      const subcategory = await subcategories.getSubcategories(id);
+      res.json(subcategory); // Отправляем результат клиенту
   } catch (err) {
-    res.status(500).send('Ошибка при получении подкатегорий');
+      console.error('Ошибка при получении подкатегорий:', err);
+      res.status(500).send('Ошибка при получении подкатегорий');
   }
 });
+
 
 app.delete('/subcategories/:id', async (req, res) => {
   try {

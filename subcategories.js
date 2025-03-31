@@ -10,15 +10,28 @@ async function createSubcategory(categoryId, name) {
     }
 }
 
-async function getSubcategories() {
+async function getSubcategories(id) {
     try {
-        const res = await query('SELECT * FROM subcategories', []);
+        if (!id || isNaN(id)) {
+            throw new Error('Некорректный идентификатор категории');
+        }
+
+        console.log('Идентификатор категории:', id);
+
+        const res = await query('SELECT * FROM subcategories WHERE category_id = $1', [id]);
+        
+        if (res.rows.length === 0) {
+            console.log('Нет подкатегорий для данной категории.');
+            return [];
+        }
+
         return res.rows;
     } catch (err) {
         console.error('Ошибка при получении подкатегорий:', err);
         throw err;
     }
 }
+
 
 async function deleteSubcategory(id) {
     try {
