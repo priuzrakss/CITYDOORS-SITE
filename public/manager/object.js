@@ -134,8 +134,8 @@ export function changeObject(){
     }
 
     // Имя файла
-    /*statusDiv.textContent = `Выбрано: ${file.name}`;
-    */
+    statusDiv.textContent = `Выбрано: ${file.name}`;
+    
 
     // Превью
     const reader = new FileReader();
