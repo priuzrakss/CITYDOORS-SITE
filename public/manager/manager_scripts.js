@@ -39,20 +39,9 @@ async function contextCategoies(params) {
         contextMenu.style.top = `${e.pageY}px`;
         contextMenu.style.display = 'flex';
     });
-    document.addEventListener('click', function(e){
-        e.preventDefault();
-        contextMenu.style.display = 'none';
-    })
 }
 
 const objectMenu = document.getElementById('object-block');
 const categoryMenu = document.getElementById('category-block');
 const contextMenu = document.getElementById('context-menu');
 
-//кнопка
-$('#file-input').focus(function() {
-    $('label').addClass('focus');
-})
-.focusout(function() {
-    $('label').removeClass('focus');
-});
