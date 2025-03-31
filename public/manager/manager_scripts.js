@@ -1,12 +1,13 @@
 import { checkAndAddCategoryButton, getCategories } from './category.js';
 import { checkAndAddObjectButton } from './object.js';
-import { checkAndAddSubcategoryButton, getSubcategories } from './subcategory.js';
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log("start");
     getCategories();
     checkAndAddObjectButton();
     contextCategoies();
     setSubcategoies();
+    fluidMenu();
 });
 
 async function setSubcategoies(parms){
@@ -47,3 +48,10 @@ const objectMenu = document.getElementById('object-block');
 const categoryMenu = document.getElementById('category-block');
 const contextMenu = document.getElementById('context-menu');
 
+//кнопка
+$('#file-input').focus(function() {
+    $('label').addClass('focus');
+})
+.focusout(function() {
+    $('label').removeClass('focus');
+});
