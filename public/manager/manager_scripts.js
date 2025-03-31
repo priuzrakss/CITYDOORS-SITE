@@ -1,5 +1,6 @@
 import { checkAndAddCategoryButton, getCategories } from './category.js';
-import { checkAndAddObjectButton } from './object.js';
+import { checkAndAddObjectButton, fluidMenu } from './object.js';
+import { checkAndAddSubcategoryButton, getSubcategories } from './subcategory.js';
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log("start");

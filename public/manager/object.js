@@ -6,8 +6,8 @@
         const addFieldBtn = document.getElementById("addFieldBtn");
         const dynamicFields = document.getElementById("dynamicFields");
         const submitBtn = document.getElementById("submitBtn");
-       // const sendPicBtn = document.getElementById("photoUpload"); // Для подгрузки фото (а как сделать чтобы)
-       // const photoPreview = document.getElementById("photoPreview");
+        const sendPicBtn = document.getElementById("photoUpload"); // Для подгрузки фото (а как сделать чтобы)
+        const photoPreview = document.getElementById("photoPreview");
        
         const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 
