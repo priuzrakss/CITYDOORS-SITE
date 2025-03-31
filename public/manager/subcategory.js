@@ -1,8 +1,8 @@
 export function checkAndAddSubcategoryButton() {
     const categoryDisplay = document.querySelector('.category-display');
-    const categoryElements = categoryDisplay ? categoryDisplay.querySelectorAll('.category-element') : [];
+    const subcategoryElement = categoryDisplay ? categoryDisplay.querySelectorAll('.subcategory-element') : [];
 
-    if (categoryElements.length > 0) {
+    if (subcategoryElement.length > 0) {
         console.log('Найдены элементы с классом subcategory-element.');
     } else {
         console.log('Элементы с классом subcategory-element не найдены.');
@@ -13,31 +13,55 @@ export function checkAndAddSubcategoryButton() {
         button.classList.add('add-subcategory-button');
         
         // Добавляем кнопку в category-display
+        addBackBtn(categoryDisplay);
         categoryDisplay.appendChild(button);
     }
 }
 
+function addBackBtn(categoriesList){
+    const backBtn = document.createElement('div');
+    backBtn.classList.add('back-button');
+    backBtn.textContent = 'Назад';
+    backBtn.addEventListener('click', function(e){
+        document.querySelectorAll('.subcategory-element').forEach(element =>{
+            element.style.display = 'none';
+        });
+        document.querySelectorAll('.category-element').forEach( element => {
+            element.style.display = 'flex';
+        })
+        document.querySelector('.name').textContent = 'Категории';    
+        backBtn.remove();
+    }); 
+    categoriesList.appendChild(backBtn);
+}
+
 export async function getSubcategories(id) {
     try {
-        const response = await fetch(`/subcategories:${id}`); // URL для получения категорий
+        const response = await fetch(`/subcategories/${id}`); // URL для получения категорий
         if (!response.ok) {
             throw new Error(`Ошибка сервера: ${response.statusText}`);
         }
         const subcategories = await response.json();
         console.log('Подкатегории:', subcategories);
-
+        
+        if(!subcategories || subcategories.length === 0){
+            checkAndAddSubcategoryButton();
+        }
+        else {
+        
         const categoriesList = document.getElementById('category-display');
-        categories.forEach(subcategory => {
+        addBackBtn(categoriesList);
+        subcategories.forEach(subcategory => {
             const listItem = document.createElement('div');
             listItem.textContent = `${subcategory.name}`;
             listItem.className = "subcategory-element";
-            listItem.id=`${subcategory.id}`;
+            listItem.id = `${subcategory.id}`;
             categoriesList.appendChild(listItem);
-        });
-        checkAndAddSubcategoryButton();
-        
+        });        
+        }
     } catch (error) {
-        console.error('Ошибка получения категорий:', error);
-        alert('Ошибка получения категорий: ' + error.message);
+        console.error('Ошибка получения подкатегорий:', error);
+        alert('Ошибка получения подкатегорий: ' + error.message);
     }
 }
+
