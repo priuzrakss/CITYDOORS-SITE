@@ -135,6 +135,131 @@ body{
     font-family: 'Bounder-regular', sans-serif;
 
 }
+
+    /* Кнопки и адаптивные поля */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: rgba(35,35,35,1);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 5px;
+    max-height: 80vh; /* 80% от высоты экрана */
+    overflow-y: auto; /* Включаем вертикальную прокрутку */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#addFieldBtn, #submitBtn {
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 10px 5px 10px 0;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#addFieldBtn {
+    background-color: #4CAF50;
+}
+
+#submitBtn {
+    background-color: #2196F3;
+}
+
+#dynamicFields {
+    margin-top: 20px;
+}
+
+.dynamic-field {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    border: 1px solid #eee;
+}
+
+.field-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.field-title {
+    flex-grow: 1;
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.remove-field {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.field-input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.buttons-container {
+    margin-top: 20px;
+}
+
 @font-face {
     font-family: 'Bounder';
     src: url('../fonts/Bounded-Black.ttf') format('truetype');

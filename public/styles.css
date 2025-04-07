@@ -179,4 +179,35 @@ body{
         font-family: 'Bounder-regular', sans-serif;
     
     }
+} /*Эксперимент с кнопкой*/
+    .sendPicBtn {
+    padding: 0;
+     margin: 0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+    }
+
+    #file-input div { /*input[type=file] в родительский блок, до 0.1px, прозрачный и установим его z-index меньше, чем у родителя, на всякий.*/
+        position: relative;
+        z-index: 10;
+    }
+
+    #upload-container input[type=file] {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        position: absolute;
+        z-index: -10;
+   }
+
+   #upload-container input[type=file]:focus + label {
+    outline: -webkit-focus-ring-color auto 5px;
 }
+
+#upload-container label.focus {
+    outline: 1px solid #0078d7;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
