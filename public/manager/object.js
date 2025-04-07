@@ -8,7 +8,7 @@
         const submitBtn = document.getElementById("submitBtn");
         const sendPicBtn = document.getElementById("sendPicBtn"); // Для подгрузки фото (а как сделать чтобы)
         const photoPreview = document.getElementById("photoPreview");
-       
+        
         const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 
         var Counter = 0; // Для каждого поля разные id
@@ -132,6 +132,8 @@ export function changeObject(){
         statusDiv.textContent = 'Ошибка: выберите файл изображения (JPEG, PNG, GIF).';
         return;
     }
+    // Перед добавлением нового изображения очистка
+    statusDiv.innerHTML = '';
 
     // Имя файла
     statusDiv.textContent = `Выбрано: ${file.name}`;
@@ -145,6 +147,31 @@ export function changeObject(){
         img.style.maxWidth = '200px';
         statusDiv.appendChild(img);
     };
+
+    // кнопка "Удалить изображение"
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Удалить изображение';
+    deleteButton.classList.add('delete-image-button');
+    statusDiv.appendChild(deleteButton);
+
+    // Добавляем обработчик события для кнопки удаления
+    deleteButton.addEventListener('click', function () {
+        // Удаляем изображение, имя файла и кнопку
+        statusDiv.innerHTML = '';
+        document.getElementById('imageUpload').value = ''; // Очищаем input file
+    });
+
     reader.readAsDataURL(file);
 });
 
+ // Создаем кнопку "Удалить фото"
+ //const DeleteBtn = document.createElement('button');
+ //DeleteBtn.textContent = 'Удалить фото';
+//DeleteBtn.classList.add('DeleteBtn');
+
+ //!file.type.startsWith('image/').id = Counter;
+ //Counter ++;
+//img.id = Counter;
+//Counter ++; 
+
+//
